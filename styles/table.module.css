@@ -1,0 +1,57 @@
+.table {
+  max-width: 900px;
+  width: 80vw;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+.tableHead {
+  height: 45px;
+  background-color: var(--color-thead);
+  color: var(--color-light);
+}
+
+.table tr th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.table tr th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.rank {
+  width: 15%;
+}
+
+.name {
+  width: 20%;
+}
+
+.exp {
+  width: 20%;
+}
+
+.prob {
+  width: 45%;
+}
+
+.tableBody tr {
+  height: 40px;
+}
+
+.tableBody tr td {
+  padding: 5px 0;
+}
+
+.tableBody tr td:not(.prob) {
+  text-align: center;
+}
+
+.tableBody tr:nth-child(even) {
+  background-color: var(--color-light);
+}
+
+.tableBody tr:nth-child(odd) {
+  background-color: var(--color-secondary);
+}

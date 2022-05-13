@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRecoilValue } from "recoil";
 import { userRankingState } from "../pages/_app";
 import style from "../styles/table.module.css";

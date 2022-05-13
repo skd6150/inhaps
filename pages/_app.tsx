@@ -3,7 +3,6 @@ import "../styles/normalize.css";
 import type { AppProps } from "next/app";
 import { RecoilRoot, atom } from "recoil";
 import Layout from "../components/layout";
-import problem from "../interfaces/problem";
 import user from "../interfaces/user";
 
 export const groupRankingState = atom({

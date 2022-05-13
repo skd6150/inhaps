@@ -1,0 +1,20 @@
+.tierIconWrapper {
+  position: relative;
+}
+
+.description {
+  display: none;
+  width: max-content;
+  color: var(--color-light);
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+@media (min-width: 400px) {
+  .tierIconWrapper:hover > .description {
+    display: block;
+    position: absolute;
+  }
+}

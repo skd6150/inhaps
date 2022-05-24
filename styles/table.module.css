@@ -7,6 +7,13 @@
   margin: var(--spacing-6) 0;
 }
 
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-48) auto;
+}
+
 .tableHead {
   height: 45px;
   background-color: var(--color-thead);

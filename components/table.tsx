@@ -1,16 +1,16 @@
-import useUserList from "../hooks/useUserList";
+import useFetch from "../hooks/useFetch";
 import style from "../styles/table.module.css";
 import TierIcon from "./tier-icon";
 
 const Table = () => {
-  const { userList, isLoading, isError } = useUserList();
+  const { data, isLoading, isError } = useFetch();
   if (isLoading) {
     return <div>loading</div>;
   }
   if (isError) {
     return <div>error</div>;
   }
-  if (userList === undefined) {
+  if (data === undefined) {
     return <div>no data</div>;
   }
   return (
@@ -24,7 +24,7 @@ const Table = () => {
         </tr>
       </thead>
       <tbody className={style.tableBody}>
-        {userList.map((user, idx) => {
+        {data.user_data.map((user, idx) => {
           return (
             <tr key={idx}>
               <td className={style.rank}>{idx + 1}</td>

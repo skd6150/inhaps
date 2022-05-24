@@ -1,9 +1,10 @@
 .table {
-  max-width: 900px;
-  width: 80vw;
+  max-width: 90vw;
+  width: var(--maxWidth-2xl);
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0px;
+  margin: var(--spacing-6) 0;
 }
 
 .tableHead {

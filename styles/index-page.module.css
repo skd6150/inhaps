@@ -1,13 +1,6 @@
 .contentWrapper {
   display: flex;
   position: relative;
-  top: -100px;
   flex-direction: column;
   align-items: center;
-}
-
-@media (max-width: 400px) {
-  .contentWrapper {
-    top: -45px;
-  }
 }

@@ -16,16 +16,22 @@ const Table = () => {
         </tr>
       </thead>
       {isLoading || isError || data === undefined ? (
-        <td colSpan={4}>
-          <SpinnerCircularFixed
-            size={90}
-            thickness={180}
-            speed={145}
-            color="rgba(57, 80, 172)"
-            secondaryColor="rgba(57, 138, 172)"
-            className={style.spinner}
-          />
-        </td>
+        <tbody>
+          <tr>
+            <td colSpan={4}>
+              <div>
+                <SpinnerCircularFixed
+                  size={90}
+                  thickness={180}
+                  speed={145}
+                  color="rgba(57, 80, 172)"
+                  secondaryColor="rgba(57, 138, 172)"
+                  className={style.spinner}
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
       ) : (
         <tbody className={style.tableBody}>
           {data.user_data.map((user, idx) => {
@@ -36,7 +42,7 @@ const Table = () => {
                 <td className={style.exp}>{user.exp}</td>
                 <td className={style.prob}>
                   {user.solved_data.map((prob) => (
-                    <TierIcon key={idx + prob.prob_name} prob={prob} />
+                    <TierIcon key={user.user_id + prob.prob_name} prob={prob} />
                   ))}
                 </td>
               </tr>

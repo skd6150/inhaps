@@ -26,14 +26,15 @@ const RankingCard = () => {
       <div className={style.filter}></div>
       <div className={style.rankingCard}>
         {isError || isLoading || data === undefined ? (
-          <SpinnerCircularFixed
-            size={90}
-            thickness={180}
-            speed={145}
-            color="rgba(57, 80, 172)"
-            secondaryColor="rgba(57, 138, 172)"
-            className={style.spinner}
-          />
+          <div className={style.spinner}>
+            <SpinnerCircularFixed
+              size={90}
+              thickness={180}
+              speed={145}
+              color="rgba(57, 80, 172)"
+              secondaryColor="rgba(57, 138, 172)"
+            />
+          </div>
         ) : (
           <div>
             <h2 className={style.title}>현재 우리학교 순위는?</h2>

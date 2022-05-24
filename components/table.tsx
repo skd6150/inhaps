@@ -1,10 +1,18 @@
-import { useRecoilValue } from "recoil";
-import { userRankingState } from "../pages/_app";
+import useUserList from "../hooks/useUserList";
 import style from "../styles/table.module.css";
 import TierIcon from "./tier-icon";
 
 const Table = () => {
-  const userRanking = useRecoilValue(userRankingState);
+  const { userList, isLoading, isError } = useUserList();
+  if (isLoading) {
+    return <div>loading</div>;
+  }
+  if (isError) {
+    return <div>error</div>;
+  }
+  if (userList === undefined) {
+    return <div>no data</div>;
+  }
   return (
     <table className={style.table}>
       <thead className={style.tableHead}>
@@ -16,11 +24,11 @@ const Table = () => {
         </tr>
       </thead>
       <tbody className={style.tableBody}>
-        {userRanking.map((user, idx) => {
+        {userList.map((user, idx) => {
           return (
             <tr key={idx}>
               <td className={style.rank}>{idx + 1}</td>
-              <td className={style.name}>{user.user_name}</td>
+              <td className={style.name}>{user.user_id}</td>
               <td className={style.exp}>{user.exp}</td>
               <td className={style.prob}>
                 {user.solved_data.map((prob) => (

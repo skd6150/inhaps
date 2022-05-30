@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { throttle } from "lodash";
-import { SpinnerCircularFixed } from "spinners-react";
-import useFetch from "../hooks/useFetch";
 import style from "../styles/ranking-card.module.css";
+import ranking from "../interfaces/ranking";
 
-const RankingCard = () => {
+interface RankingCardProps {
+  ranking: ranking;
+}
+
+const RankingCard = ({ ranking }: RankingCardProps) => {
   const [offset, setOffset] = useState(0);
-  const { data, isLoading, isError } = useFetch();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,30 +27,18 @@ const RankingCard = () => {
     >
       <div className={style.filter}></div>
       <div className={style.rankingCard}>
-        {isError || isLoading || data === undefined ? (
-          <div className={style.spinner}>
-            <SpinnerCircularFixed
-              size={90}
-              thickness={180}
-              speed={145}
-              color="rgba(57, 80, 172)"
-              secondaryColor="rgba(57, 138, 172)"
-            />
-          </div>
-        ) : (
-          <div>
-            <h2 className={style.title}>현재 우리학교 순위는?</h2>
-            <span className={style.rankingSecondary}>
-              {data.rank - 1}위 {data.upper_group}
-            </span>
-            <span className={style.rankingPrimary}>
-              {data.rank}위 인하대학교
-            </span>
-            <span className={style.rankingSecondary}>
-              {data.rank + 1}위 {data.lower_group}
-            </span>
-          </div>
-        )}
+        <div>
+          <h2 className={style.title}>현재 우리학교 순위는?</h2>
+          <span className={style.rankingSecondary}>
+            {ranking.rank - 1}위 {ranking.upper_group}
+          </span>
+          <span className={style.rankingPrimary}>
+            {ranking.rank}위 인하대학교
+          </span>
+          <span className={style.rankingSecondary}>
+            {ranking.rank + 1}위 {ranking.lower_group}
+          </span>
+        </div>
       </div>
     </div>
   );
